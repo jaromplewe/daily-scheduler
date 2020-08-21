@@ -1,16 +1,14 @@
 
-var m = moment(); console.log(m.toString())
-console.log(moment().date());
+var m = moment().format("dddd" + ", " + "MMMM" + " " + "Do"); 
+$('#currentDay').append(m);
+
+$('.fa-save').on('click', function() {
+    console.log($('.textarea').val())
+}); 
+// let hours = $('.hour').text();
+// console.log([hours])
 
 
-let hours = ["8:00 PM", "9:00 PM"];
-
-for (let i = 0; i < hours.length; i++) {
-    var dateAndTime = moment().format('YYYY-MM-DD ') + hours[i];
-    var w = moment(dateAndTime);
-    console.log(w.hour());
-}
-
-if (moment().hour() === w.hour()) {
-    console.log('butthole')
-}
+// if (moment().hour() === w.hour()) {
+    // console.log('butthole')
+// }
