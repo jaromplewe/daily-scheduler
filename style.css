@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  box-sizing: border-box;
 }
 
 textarea{
@@ -58,6 +59,7 @@ textarea{
 }
 
 .saveBtn {
+  border: transparent;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
