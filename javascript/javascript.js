@@ -1,33 +1,51 @@
-// APPEND THE CURRENT DATE
+
+// GET DOM ELEMENTS
+const hourClass = document.getElementsByClassName('textHour');
+const textArea = document.getElementsByClassName('textarea');
+const saveBtn = document.getElementsByClassName('saveBtn');
+
+
+// APPEND THE CURRENT DATE TO HEADER
 let m = moment().format("dddd" + ", " + "MMMM" + " " + "Do");
 $('#currentDay').append(m);
 
-// CREATE HOUR VARIABLES FOR COMPARISON
-let textHour = $('.textHour');
-let currentHour = JSON.stringify(moment().hour());
-// console.log(moment().hour("8:00 PM"))
 
+
+// CREATE HOUR FROM PAGE DISPLAY
+// Set variables needed
+let textHour = $('.textHour');
 let textMoment = [];
+// Format page display hour to HH for comparison with moment().hour()
 for (let i = 0; i < $('.textHour').length; i++) {
-    let wowo = (moment(textHour[i].textContent).hour());
-    // console.log(wowo);
-    textMoment += i;
+    let formattedTextHour = moment(textHour[i].textContent, ["h:mm A"]).format("HH");
+    textMoment.push(formattedTextHour);
 };
 
-// COMPARE THE TWO HOUR VARIABLES
-// console.log(JSON.stringify(moment()))
-// if (moment().hour() === textHour[0].hour()) {
-//     console.log('butthole')
-// }
+
+
+
+// COMPARE THE TWO HOUR VARIABLES AND CHANGE COLORS ACCORDINGLY
+for (let i = 0; i < textMoment.length; i++) {
+    if (JSON.stringify(moment().hour()) === textMoment[i]) {
+        console.log("current")
+        textArea[i].classList.add('present');
+    } else if (textMoment[i] < JSON.stringify(moment().hour())) {
+        console.log("before")
+        textArea[i].classList.add('past');
+    } else if (textMoment[i] > JSON.stringify(moment().hour())) {
+        console.log("after")
+        textArea[i].classList.add('future');
+    }
+}
 
 
 
 // SAVE TEXT TO LOCALSTORAGE
 
 // Get elements needed
-const hourClass = document.getElementsByClassName('textHour');
-const textArea = document.getElementsByClassName('textarea');
-const saveBtn = document.getElementsByClassName('saveBtn');
+// const hourClass = document.getElementsByClassName('textHour');
+// const textArea = document.getElementsByClassName('textarea');
+// const saveBtn = document.getElementsByClassName('saveBtn');
 // Add event listener to the save button to setItem to localStorage
 for (let i = 0; i < textArea.length; i++) {
     saveBtn[i].addEventListener('click', function () {
@@ -39,12 +57,11 @@ for (let i = 0; i < textArea.length; i++) {
 
 // APPEND THE LOCALSTORAGE TEXT INTO THE TEXT AREAS
 
-for (let i=0; i<textArea.length; i++) {
+for (let i = 0; i < textArea.length; i++) {
     if (localStorage.getItem(hourClass[i].textContent) === null) {
-        console.log('butthole');
+
     } else {
-    let locStoreText = localStorage.getItem(hourClass[i].textContent);
-    console.log(locStoreText)
-    textArea[i].textContent = locStoreText;
+        let locStoreText = localStorage.getItem(hourClass[i].textContent);
+        textArea[i].textContent = locStoreText;
     }
 }
