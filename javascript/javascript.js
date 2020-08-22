@@ -41,11 +41,6 @@ for (let i = 0; i < textMoment.length; i++) {
 
 
 // SAVE TEXT TO LOCALSTORAGE
-
-// Get elements needed
-// const hourClass = document.getElementsByClassName('textHour');
-// const textArea = document.getElementsByClassName('textarea');
-// const saveBtn = document.getElementsByClassName('saveBtn');
 // Add event listener to the save button to setItem to localStorage
 for (let i = 0; i < textArea.length; i++) {
     saveBtn[i].addEventListener('click', function () {
