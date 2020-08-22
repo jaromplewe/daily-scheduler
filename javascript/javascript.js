@@ -27,13 +27,10 @@ for (let i = 0; i < $('.textHour').length; i++) {
 // COMPARE THE TWO HOUR VARIABLES AND CHANGE COLORS ACCORDINGLY
 for (let i = 0; i < textMoment.length; i++) {
     if (JSON.stringify(moment().hour()) === textMoment[i]) {
-        console.log("current")
         textArea[i].classList.add('present');
     } else if (textMoment[i] < JSON.stringify(moment().hour())) {
-        console.log("before")
         textArea[i].classList.add('past');
     } else if (textMoment[i] > JSON.stringify(moment().hour())) {
-        console.log("after")
         textArea[i].classList.add('future');
     }
 }
