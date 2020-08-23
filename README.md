@@ -1,4 +1,5 @@
 # Daily Scheduler
+*https://jaromplewe.github.io/daily-scheduler/*
 
 ## Plan your day!
 
