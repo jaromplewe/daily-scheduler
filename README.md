@@ -7,6 +7,6 @@
     * The current hour is colored RED
     * Future hours are colored GREEN
 
-* Click in to one of the hour blocks to enter your tasks.
-* Click the SAVE button to save your tasks, this way, if you leave the page and come back, the site will remember your tasks.
-* Enjoy your organized and productive day!
+1. Click in to one of the hour blocks to enter your tasks.
+2. Click the SAVE button to save your tasks, this way, if you leave the page and come back, the site will remember your tasks.
+3. Enjoy your organized and productive day!
